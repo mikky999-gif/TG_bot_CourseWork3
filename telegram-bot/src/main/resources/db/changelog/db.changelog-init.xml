@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml.ns/liquibase"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml.ns/liquibase http://www.liquibase.org/xml.ns/liquibase/liquibase-4.1.xsd">
+
+    <!-- Первая миграция -->
+    <changeSet author="author_name" id="create_notification_task_table">
+        <comment>Создание таблицы для хранения задач уведомлений.</comment>
+
+        <createTable tableName="notification_task">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" startWith="1">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="chat_id" type="bigint" notNull="true"/>
+            <column name="task_text" type="varchar(255)" notNull="true"/>
+            <column name="send_time" type="timestamp" notNull="true"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
